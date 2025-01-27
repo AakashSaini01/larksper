@@ -19,7 +19,7 @@ export default function Features() {
       <div className="features mt-20 mb-10 font-dot">
         <div className="md:container flex flex-col items-center justify-center">
           <div className="row md:max-w-6xl md:flex md:justify-center md:gap-8">
-            <div className="col-auto text-center md:flex-1 flex flex-col items-center">
+            <div className="col-auto animate-slideinleft text-center md:flex-1 flex flex-col items-center">
               <FontAwesomeIcon
                 className="md:text-4xl text-gray-500/75"
                 icon={faCalendar}
@@ -30,7 +30,7 @@ export default function Features() {
               </p>
             </div>
 
-            <div className="col-auto text-center md:flex-1 flex flex-col items-center">
+            <div className="col-auto animate-slideinleft text-center md:flex-1 flex flex-col items-center">
               <FontAwesomeIcon
                 className="md:text-4xl text-gray-500/75"
                 icon={faShoppingBag}
@@ -41,7 +41,7 @@ export default function Features() {
               </p>
             </div>
 
-            <div className="col-auto text-center md:flex-1 flex flex-col items-center">
+            <div className="col-auto animate-slideinleft text-center md:flex-1 flex flex-col items-center">
               <FontAwesomeIcon
                 className="md:text-4xl text-gray-500/75"
                 icon={faGift}
@@ -52,7 +52,7 @@ export default function Features() {
               </p>
             </div>
 
-            <div className="col-auto text-center md:flex-1 flex flex-col items-center">
+            <div className="col-auto animate-slideinleft text-center md:flex-1 flex flex-col items-center">
               <FontAwesomeIcon
                 className="md:text-4xl text-gray-500/75"
                 icon={faRightLeft}
