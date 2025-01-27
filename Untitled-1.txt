@@ -1,0 +1,184 @@
+import { Tab } from "@headlessui/react";
+
+export default function Categories() {
+  return (
+    <div className="flex flex-col items-center justify-center ">
+      <Tab.Group>
+        <Tab.List>
+          <Tab className="col-lg box-cat-heading">Women</Tab>
+          <Tab className="col-lg box-cat-heading">Men</Tab>
+          <Tab className="col-lg box-cat-heading">Jwelleries</Tab>
+          <Tab className="col-lg box-cat-heading">Kids</Tab>
+        </Tab.List>
+        <Tab.Panels>
+          <Tab.Panel>
+            <div className="row-categories sm:flex">
+              <div className="col-md-3">
+                <img
+                  className="cat-img"
+                  src="https://tailwindui.com/plus/img/ecommerce-images/mega-menu-category-01.jpg"
+                  alt="Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees."
+                />
+              </div>
+
+              <div className="col-md-3">
+                <img
+                  className="cat-img"
+                  src="https://tailwindui.com/plus/img/ecommerce-images/mega-menu-category-02.jpg"
+                  alt="Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees."
+                />
+              </div>
+              <div className="col-md-3">
+                <img
+                  className="cat-img"
+                  src="https://tailwindui.com/plus/img/ecommerce-images/mega-menu-category-01.jpg"
+                  alt="Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees."
+                />
+              </div>
+
+              <div className="col-md-3">
+                <img
+                  className="cat-img"
+                  src="https://tailwindui.com/plus/img/ecommerce-images/mega-menu-category-02.jpg"
+                  alt="Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees."
+                />
+              </div>
+            </div>
+          </Tab.Panel>
+
+          <Tab.Panel>
+            <div className="row-categories sm:flex">
+              <div className="col-md-3">
+                <img
+                  className="cat-img"
+                  src="https://tailwindui.com/plus/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg"
+                  alt="Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees."
+                />
+              </div>
+
+              <div className="col-md-3">
+                <img
+                  className="cat-img"
+                  src="https://tailwindui.com/plus/img/ecommerce-images/category-page-02-image-card-06.jpg"
+                  alt="Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees."
+                />
+              </div>
+              <div className="col-md-3">
+                <img
+                  className="cat-img"
+                  src="https://tailwindui.com/plus/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg"
+                  alt="Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees."
+                />
+              </div>
+
+              <div className="col-md-3">
+                <img
+                  className="cat-img"
+                  src="https://tailwindui.com/plus/img/ecommerce-images/category-page-02-image-card-06.jpg"
+                  alt="Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees."
+                />
+              </div>
+            </div>
+          </Tab.Panel>
+
+          <Tab.Panel>
+            <div className="row-categories sm:flex">
+              <div className="col-md-3">
+                <img
+                  className="cat-img"
+                  src="https://manubhai.in/SocialMedia/post_artworks/DGBD05724.jpg"
+                  alt="A beautiful gold necklace with a pendant in the shape of a flower."
+                />
+              </div>
+
+              <div className="col-md-3">
+                <img
+                  className="cat-img"
+                  src="https://res.cloudinary.com/hamstech/images/f_auto,q_auto/v1628751454/Hamstech%20App/Must-Have-Trendy-Jewellery-Designs/Must-Have-Trendy-Jewellery-Designs.jpg?_i=AA"
+                  alt="A beautiful gold necklace with a pendant in the shape of a flower."
+                />
+              </div>
+              <div className="col-md-3">
+                <img
+                  className="cat-img"
+                  src="https://manubhai.in/SocialMedia/post_artworks/DGBD05724.jpg"
+                  alt="A beautiful gold necklace with a pendant in the shape of a flower."
+                />
+              </div>
+
+              <div className="col-md-3">
+                <img
+                  className="cat-img"
+                  src="https://res.cloudinary.com/hamstech/images/f_auto,q_auto/v1628751454/Hamstech%20App/Must-Have-Trendy-Jewellery-Designs/Must-Have-Trendy-Jewellery-Designs.jpg?_i=AA"
+                  alt="A beautiful gold necklace with a pendant in the shape of a flower."
+                />
+              </div>
+            </div>
+          </Tab.Panel>
+        </Tab.Panels>
+      </Tab.Group>
+    </div>
+  );
+}
+
+
+.box-cat-heading {
+  font-size: 20px;
+  font-weight: 500;
+  color: grey;
+  margin: 20px;
+  padding: 10px 20px;
+  font-family: didot;
+  width: auto;
+  cursor: pointer;
+  border: 2px solid grey;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.box-cat-heading:hover {
+  background-color: #f0f0f0;
+  color: black;
+}
+
+.active-tab {
+  background-color: #e0e0e0;
+  color: black;
+  font-weight: bold;
+  border: 2px solid black;
+}
+
+.row-categories {
+  gap: 30px;
+  display: flex;
+}
+
+.cat-img {
+  width: 300px;
+  height: 300px;
+  border: 2px solid grey;
+  border-radius: 20px;
+  object-fit: cover;
+  transition: all 0.3s ease-in-out;
+}
+
+.cat-img:hover {
+  border-color: black;
+  transform: scale(1.05);
+}
+
+.image-description {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #555;
+  font-weight: 400;
+  font-family: Arial, sans-serif;
+}
+
+.image-heading {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+  font-family: Arial, sans-serif;
+}

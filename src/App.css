@@ -1,0 +1,121 @@
+.row-heading{
+  width: 100%;
+  background-color: #F1F1F0;
+  padding-bottom: 40px;
+}
+
+.container-fluid h1{
+    font-size: 40px;
+    font-weight: 5px;
+    font-family:didot;
+    padding-top: 50px;
+    text-align: center;
+}
+
+.box-heading-para{
+  width: 50%;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-left: 25%;
+  font-size: 18px;
+  font-weight: 500;
+  color: grey;
+  font-family: didot;
+  text-align: center;
+}
+
+.banner{
+  width: 78%;
+  margin-left: 12%;
+  justify-content: center;
+}
+
+.swiper-slide {
+    width: 400px !important;
+}
+
+.banner p{
+  font-size: 15px;
+  font-weight: 500;
+  color: grey;  
+}
+
+.banner-image{
+  height: 400px;
+  width: 300px;
+  border-radius: 20px;
+  justify-content: center;
+}
+
+.banner h4{
+  font-size: 20px;
+  margin-top: 12px;
+  margin-left: 10px;
+  font-weight: 5px;
+  font-family: didot;
+}
+
+
+
+
+/* Tab Default Styles */
+.box-cat-heading {
+  font-size: 20px;
+  font-weight: 500;
+  color: grey;
+  margin: 20px;
+  padding: 10px 20px;
+  font-family: didot;
+  width: auto;
+  cursor: pointer;
+  /* border: 2px solid grey; */
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.box-cat-heading:hover {
+  background-color: #f0f0f0;
+  color: black;
+}
+
+.active-tab {
+  background-color: #e0e0e0;
+  color: black;
+  font-weight: bold;
+  border: 2px solid black;
+}
+
+.row-categories {
+  gap: 30px;
+  display: flex;
+}
+
+.cat-img {
+  width: 300px;
+  height: 300px;
+  /* border: 2px solid grey; */
+  border-radius: 20px;
+  object-fit: cover;
+  transition: all 0.6s ease-in-out;
+}
+
+.cat-img:hover {
+  border-color: black;
+  transform: scale(1.05);
+}
+
+.image-description {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #555;
+  font-weight: 400;
+  font-family: Arial, sans-serif;
+}
+
+.image-heading {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
