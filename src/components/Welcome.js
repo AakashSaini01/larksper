@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import img1 from "../assets/male-models-visual-photo-album-full-menly-vibes-collected-from-all-world.jpg";
 import img2 from "../assets/young-woman-oversized-shirt-by-window.jpg";
+import img3 from "../assets/luxury-jewelry-brand-advertisement-with-woman-model-shooting.jpg";
 
 const WelcomePage = () => {
-  const images = [img1, img2];
+  const images = [img1, img2, img3];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
