@@ -42,13 +42,13 @@ export default function PopularCat() {
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <div className="bg-white flex">
+        <div className="bg-white mb-5 flex">
           <h2 className="text-2xl text-start flex font-dot uppercase text-gray:text-gray-900">
             Popular Categories
           </h2>
-          <p className="text-sm text-end flex font-dot uppercase text-gray:text-gray-900 underline">
+          <button className="text-base capitalize font-semibold text-right flex-1 font-dot text-gray:text-gray-900 underline">
             view all products
-          </p>
+          </button>
         </div>
         {/* <h2 className="font-2xl">Products</h2> */}
 
@@ -58,10 +58,12 @@ export default function PopularCat() {
               <img
                 alt={product.imageAlt}
                 src={product.imageSrc}
-                className="aspect-square w-full font-medium rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8"
+                className="aspect-square w-full font-medium rounded-lg bg-gray-200 object-cover group-hover:scale-95 xl:aspect-7/8"
               />
-              <h3 className="mt-4 text-sm text-gray-700">{product.name}</h3>
-              <p className="mt-1 text-lg font-medium text-gray-900">
+              <h3 className="mt-4 text-base font-semibold capitalize text-gray-700">
+                {product.name}
+              </h3>
+              <p className="mt-1 text-base font-medium text-gray-900">
                 {product.price}
               </p>
             </a>

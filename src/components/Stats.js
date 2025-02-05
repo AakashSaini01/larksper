@@ -13,7 +13,7 @@ export default function Stats() {
   useEffect(() => {
     stats.forEach((stat, index) => {
       animate(0, stat.value, {
-        duration: 2,
+        duration: 3,
         ease: "easeOut",
         onUpdate: (latest) => {
           setAnimatedValues((prev) => {

@@ -2,7 +2,7 @@ export default function NewsLetter() {
   return (
     <div className="relative isolate bg-Bloom font-dot p-20">
       <div className="mx-auto max-w-4xl overflow-hidden bg-white shadow-lg rounded-lg p-20 text-center">
-        <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
+        <h2 className="text-4xl font-bold capitalize tracking-tight sm:text-5xl">
           Get notified when we’re launching
         </h2>
         <p className="mt-4 text-lg leading-6 font-medium text-gray-500">

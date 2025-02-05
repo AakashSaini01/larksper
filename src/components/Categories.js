@@ -25,7 +25,7 @@ export default function Categories() {
           </div>
           <div className="absolute bottom-4 left-4 text-white">
             <h2 className="font-bold text-lg">Men</h2>
-            <p className="text-sm">Clothing Collection</p>
+            <p className="text-sm">Best Collection</p>
           </div>
           <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition duration-300"></div>
         </div>
@@ -41,7 +41,7 @@ export default function Categories() {
           </div>
           <div className="absolute bottom-4 left-4 text-white">
             <h2 className="font-bold text-lg">Women</h2>
-            <p className="text-sm">Clothing Collection</p>
+            <p className="text-sm">Best Collection</p>
           </div>
           <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition duration-300"></div>
         </div>
@@ -57,7 +57,7 @@ export default function Categories() {
           </div>
           <div className="absolute bottom-4 left-4 text-white">
             <h2 className="font-bold text-lg">Jwellery</h2>
-            <p className="text-sm">Clothing Collection</p>
+            <p className="text-sm">Best Collection</p>
           </div>
           <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition duration-300"></div>
         </div>
