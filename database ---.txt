@@ -1,0 +1,44 @@
+database ---> 
+
+1) User Information (
+	a) name
+	b) email
+	c) password
+	d) address
+	e) phone no.
+)
+
+2) product details (
+	a) product name
+	b) description
+	c) price
+	d) image url
+	e) category
+	f) inventory
+)
+
+3) shopping cart (
+	a) product id
+	b) product name
+	c) quantity
+	d) size
+	e) shipping address
+	f) total amount
+	g) user id
+)
+
+
+4) order history (
+	a) order id
+	b) order date
+	c) total amount
+	d) payment method (optional)
+	e) delivery status
+	f) user id
+	g) status
+	h) 
+) 
+
+5) payment information(
+	a) 
+	)

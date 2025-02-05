@@ -5,21 +5,20 @@ import {
   DialogPanel,
   Disclosure,
   DisclosureButton,
-  Popover,
-  PopoverButton,
   PopoverGroup,
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import larksper from "../assets/banner.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  let navigate = useNavigate();
   return (
-    <header className="bg-Bloom">
+    <header className=" ">
       <nav
         aria-label="Global"
-        className="mx-auto flex max-w-full items-center justify-between p-6 lg:px-8"
+        className="mx-auto flex max-w-full items-center justify-between pb-1 lg:px-8"
       >
         <div className="flex lg:hidden">
           <button
@@ -31,14 +30,17 @@ export default function Header() {
             <Bars3Icon aria-hidden="true" className="size-6" />
           </button>
         </div>
-        <PopoverGroup className="hidden lg:flex w-1/3 lg:gap-x-12">
-          <Popover className="relative">
-            <a href="www.google.com">
-              <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
-                Women
-              </PopoverButton>
-            </a>
-          </Popover>
+        <PopoverGroup className="hidden cursor-pointer lg:flex w-1/3 lg:gap-x-12">
+          {/* <Popover className="relative"> */}
+          <div
+            onClick={function () {
+              navigate("/products");
+            }}
+            className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900"
+          >
+            Women
+          </div>
+          {/* </Popover> */}
 
           <a
             href="./products.js"
@@ -61,10 +63,15 @@ export default function Header() {
         </PopoverGroup>
 
         <div className="flex md:flex-1 w-1/3 justify-center">
-          <a href="../App.js" className="m-0 p-0 ">
+          <div
+            onClick={function () {
+              navigate("/");
+            }}
+            className="m-0 p-0 cursor-pointer"
+          >
             <span className="sr-only">Larksper</span>
             <img alt="" src={larksper} className="h-16 w-full" />
-          </a>
+          </div>
         </div>
 
         <div className="hidden lg:flex w-1/3 lg:flex-1 lg:justify-end">
