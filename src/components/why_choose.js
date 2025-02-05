@@ -1,4 +1,4 @@
-import larksper from "../assets/single-image-2.jpg";
+import larksper from "../assets/blonde-curly-woman-tweed-jacket-white-elegant-blouse-covers-sun-with-hand-charming-girl-looks-up-poses-dark-room.jpg";
 
 export default function WhyLarksper() {
   return (
@@ -12,7 +12,7 @@ export default function WhyLarksper() {
           <img
             src={larksper}
             alt="Classic Winter Collection"
-            className="object-cover w-full h-full"
+            className="object-cover w-full h-svh"
           />
         </div>
 
