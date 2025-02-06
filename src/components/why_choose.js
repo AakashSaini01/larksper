@@ -1,4 +1,4 @@
-import larksper from "../assets/blonde-curly-woman-tweed-jacket-white-elegant-blouse-covers-sun-with-hand-charming-girl-looks-up-poses-dark-room.jpg";
+import larksper from "../assets/portrait-woman-white-sweater-winter-seasonal-outside-city-walk-evening-city.png";
 
 export default function WhyLarksper() {
   return (
