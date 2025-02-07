@@ -135,12 +135,14 @@ export default function Header() {
               />
             </svg>
           </a>
-          <a
-            href="./products.js"
-            className="text-sm/6 columns-2 font-semibold text-gray-900"
+          <div
+            onClick={function () {
+              navigate("/Login");
+            }}
+            className="text-sm/6 columns-2 font-semibold cursor-pointer text-gray-900"
           >
             Log in <span aria-hidden="true">&rarr;</span>
-          </a>
+          </div>
         </div>
       </nav>
       <Dialog
