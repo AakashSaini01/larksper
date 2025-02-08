@@ -178,32 +178,40 @@ export default function Header() {
                     Product
                   </DisclosureButton>
                 </Disclosure>
-                <a
-                  href="./products.js"
+                <div
+                  onClick={function () {
+                    navigate("/products");
+                  }}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
                   Women
-                </a>
-                <a
-                  href="./products.js"
+                </div>
+                <div
+                  onClick={function () {
+                    navigate("/products");
+                  }}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
                   Men
-                </a>
-                <a
-                  href="./products.js"
+                </div>
+                <div
+                  onClick={function () {
+                    navigate("/products");
+                  }}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
                   Accessories
-                </a>
+                </div>
               </div>
               <div className="py-6">
-                <a
-                  href="./products.js"
+                <div
+                  onClick={function () {
+                    navigate("/Login");
+                  }}
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
                   Log in
-                </a>
+                </div>
               </div>
             </div>
           </div>

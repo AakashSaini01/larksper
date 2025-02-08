@@ -1,4 +1,3 @@
-import "../App.css";
 import WelcomePage from "./Welcome";
 import Features from "./features";
 import Categories from "./Categories";
@@ -7,7 +6,7 @@ import PopularCat from "./PopularCat";
 import NewsLetter from "./NewsLetter";
 import Stats from "./Stats";
 
-function Home() {
+export default function Home() {
   return (
     <div className="container-fluid font-dot">
       <hr />
@@ -21,5 +20,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;
