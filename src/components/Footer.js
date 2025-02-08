@@ -1,3 +1,5 @@
+import logo from "../assets/banner.png";
+
 export default function Footer() {
   return (
     <footer className="bg-Bloom text-gray-600">
@@ -5,29 +7,26 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {/* Company Logo and Description */}
           <div>
-            <div className="flex items-center space-x-1">
-              <span className="text-indigo-500 text-2xl font-bold">🌊</span>
+            <div className="flex items-center">
+              <img className="" src={logo} alt="logo" />
             </div>
-            <p className="mt-4 text-sm">
-              Making the world a better place through constructing elegant
-              hierarchies.
-            </p>
+
             <div className="flex space-x-3 mt-6">
-              <a href="#" className="text-gray-500 hover:text-indigo-500">
-                <i className="fab fa-facebook"></i> {/* Facebook Icon */}
-              </a>
-              <a href="#" className="text-gray-500 hover:text-indigo-500">
-                <i className="fab fa-instagram"></i> {/* Instagram Icon */}
-              </a>
-              <a href="#" className="text-gray-500 hover:text-indigo-500">
-                <i className="fab fa-twitter"></i> {/* X/Twitter Icon */}
-              </a>
-              <a href="#" className="text-gray-500 hover:text-indigo-500">
-                <i className="fab fa-github"></i> {/* GitHub Icon */}
-              </a>
-              <a href="#" className="text-gray-500 hover:text-indigo-500">
-                <i className="fab fa-youtube"></i> {/* YouTube Icon */}
-              </a>
+              <div className="text-gray-500 hover:text-indigo-500">
+                <i className="fab fa-facebook"></i>
+              </div>
+              <div className="text-gray-500 hover:text-indigo-500">
+                <i className="fab fa-instagram"></i>
+              </div>
+              <div className="text-gray-500 hover:text-indigo-500">
+                <i className="fab fa-twitter"></i>
+              </div>
+              <div className="text-gray-500 hover:text-indigo-500">
+                <i className="fab fa-github"></i>
+              </div>
+              <div className="text-gray-500 hover:text-indigo-500">
+                <i className="fab fa-youtube"></i>
+              </div>
             </div>
           </div>
 
