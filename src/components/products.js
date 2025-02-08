@@ -106,12 +106,15 @@ export default function Products() {
 
   return (
     <>
-      <div className="box w-full h-96 overflow-hidden">
+      <div className="relative w-full h-96 overflow-hidden">
         <img
           src={Image}
           alt="top-image"
-          className="w-full h-full object-fill"
+          className="w-full h-full object-cover"
         />
+        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <h1 className="text-white text-4xl font-bold">Women</h1>
+        </div>
       </div>
       <div className="bg-white">
         <div>
