@@ -1,5 +1,5 @@
 "use client";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Image from "../assets/sustainable-fashion-fiesta-celebrate-earth-day-with-chic-ecofriendly-styles.jpeg";
 import { useState } from "react";
 import {
@@ -58,6 +58,7 @@ const subCategories = [
   { name: "Hip Bags", href: "#" },
   { name: "Laptop Sleeves", href: "#" },
 ];
+
 const filters = [
   {
     id: "color",
@@ -103,6 +104,7 @@ function classNames(...classes) {
 export default function Products() {
   const navigate = useNavigate();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const { categoryId } = useParams();
 
   return (
     <>

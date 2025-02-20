@@ -42,24 +42,30 @@ export default function Header() {
           </div>
           {/* </Popover> */}
 
-          <a
-            href="./products.js"
+          <div
+            onClick={function () {
+              navigate("/products/categoryId");
+            }}
             className="text-sm/6 font-semibold text-gray-900"
           >
             Men
-          </a>
-          <a
-            href="./products.js"
+          </div>
+          <div
+            onClick={function () {
+              navigate("/products");
+            }}
             className="text-sm/6 font-semibold text-gray-900"
           >
             Accessories
-          </a>
-          <a
-            href="./products.js"
+          </div>
+          <div
+            onClick={function () {
+              navigate("/products");
+            }}
             className="text-sm/6 font-semibold text-gray-900"
           >
             Jwelleries
-          </a>
+          </div>
         </PopoverGroup>
 
         <div className="flex md:flex-1 w-1/3 justify-center">

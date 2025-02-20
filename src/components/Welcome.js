@@ -21,7 +21,7 @@ const WelcomePage = () => {
   return (
     <div className="overflow-hidden font-dot relative h-screen">
       {/* Carousel */}
-      <div className="absolute inset-0">
+      <div className="animate-fadeInUp absolute inset-0">
         {images.map((image, index) => (
           <div
             key={index}

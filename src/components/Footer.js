@@ -13,7 +13,7 @@ export default function Footer() {
 
             <div className="flex space-x-3 mt-6">
               <div className="text-gray-500 hover:text-indigo-500">
-                <i className="fab fa-facebook"></i>
+                <i className="fab fa-facebook">Facebook</i>
               </div>
               <div className="text-gray-500 hover:text-indigo-500">
                 <i className="fab fa-instagram"></i>
