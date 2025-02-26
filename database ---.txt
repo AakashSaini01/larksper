@@ -8,37 +8,54 @@ database --->
 	e) phone no.
 )
 
-2) product details (
+2) category(
+	a) category Id
+	b) category name
+	c) category description
+	d) category image
+)
+
+
+3)	product details (
 	a) product name
 	b) description
-	c) price
+	c) price (old & new)
 	d) image url
-	e) category
-	f) inventory
+	e) category id
 )
 
-3) shopping cart (
-	a) product id
-	b) product name
-	c) quantity
-	d) size
-	e) shipping address
-	f) total amount
-	g) user id
+4) shopping cart (
+	a) category id
+	b) product id
+	c) user id
+	d) product name
+	e) quantity
+	f) size
+	g) colour
+	h) total amount
+	i) shipping address
 )
 
 
-4) order history (
-	a) order id
-	b) order date
-	c) total amount
-	d) payment method (optional)
-	e) delivery status
-	f) user id
-	g) status
-	h) 
+5) order history (
+	a) user id
+	b) order id
+	c) product id
+	d) product image 
+	e) product name 
+	f) quantity 
+	g) total amount
+	h) order date
+	i) delivery status
+	j) payment method (optional)
+	k) 
 ) 
 
-5) payment information(
+6) payment information(
 	a) 
 	)
+
+
+7) 
+
+)

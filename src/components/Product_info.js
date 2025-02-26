@@ -2,31 +2,35 @@
 import { useState } from "react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { Radio, RadioGroup } from "@headlessui/react";
+import Women1 from "../assets/Women_clothes/Top_wear/id_1/beautiful-young-female-showing-thumb-up-while-blinking-blouse.jpg";
+import Women2 from "../assets/Women_clothes/Top_wear/id_1/attractive-lady-showing-v-gesture-eye-blouse-looking-cheerful-front-view.jpg";
+import Women3 from "../assets/Women_clothes/Top_wear/id_1/beautiful-young-female-looking-camera-blouse-looking-charming.jpg";
+import Women4 from "../assets/Women_clothes/Top_wear/id_1/portrait-attractive-lady-pouting-lips-blouse-looking-confident-front-view.jpg";
 
 const product_info = {
-  name: "Basic Tee 6-Pack",
+  name: "V Gesture Eye Blouse",
   price: "$192",
   href: "#",
   breadcrumbs: [
-    { id: 1, name: "Men", href: "#" },
+    { id: 1, name: "Women", href: "#" },
     { id: 2, name: "Clothing", href: "#" },
   ],
   images: [
     {
-      src: "https://tailwindui.com/plus-assets/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
-      alt: "Two each of gray, white, and black shirts laying flat.",
+      src: Women1,
+      alt: "beautiful-young-female-showing-thumb-up-while-blinking-blouse.",
     },
     {
-      src: "https://tailwindui.com/plus-assets/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg",
-      alt: "Model wearing plain black basic tee.",
+      src: Women2,
+      alt: "attractive-lady-showing-v-gesture-eye-blouse-looking-cheerful-front-view.",
     },
     {
-      src: "https://tailwindui.com/plus-assets/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg",
-      alt: "Model wearing plain gray basic tee.",
+      src: Women3,
+      alt: "beautiful-young-female-looking-camera-blouse-looking-charming.",
     },
     {
-      src: "https://tailwindui.com/plus-assets/img/ecommerce-images/product-page-02-featured-product-shot.jpg",
-      alt: "Model wearing plain white basic tee.",
+      src: Women4,
+      alt: "portrait-attractive-lady-pouting-lips-blouse-looking-confident-front-view.",
     },
   ],
   colors: [
@@ -45,15 +49,15 @@ const product_info = {
     { name: "3XL", inStock: true },
   ],
   description:
-    'The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: "Black". Need to add an extra pop of color to your outfit? Our white tee has you covered.',
+    "A beautiful young woman in a stylish blouse strikes a playful and confident pose. She gives a thumbs-up while winking, flashes a cheerful V-sign near her eye, and looks directly at the camera with charm and poise. Her expression shifts from a bright smile to a confident pout, exuding both energy and elegance.",
   highlights: [
-    "Hand cut and sewn locally",
-    "Dyed with our proprietary colors",
-    "Pre-washed & pre-shrunk",
-    "Ultra-soft 100% cotton",
+    "Playful and confident design with stylish details",
+    "Crafted for charm and elegance in every pose",
+    "Soft, high-quality fabric for all-day comfort",
+    "Thoughtfully tailored for a flattering fit",
   ],
   details:
-    'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
+    "This blouse embodies versatility and personality, perfect for any occasion. Whether flashing a cheerful V-sign, winking with confidence, or striking a poised look, its effortless style enhances your natural charm. Stay ahead of trends with exclusive colors and limited-edition releases.",
 };
 const reviews = { href: "#", average: 4, totalCount: 117 };
 
@@ -110,29 +114,29 @@ export default function ProductInfo() {
 
           {/* Image gallery */}
           <div className="flex max-w-7xl mx-auto">
-            <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-              <div className="hidden lg:grid lg:grid-cols-1">
+            <div className="mx-auto mt-6 max-w-3xl">
+              <div className="grid grid-cols-2 gap-4">
                 <img
                   alt={product_info.images[0].alt}
                   src={product_info.images[0].src}
-                  className="w-full pb-5 rounded-lg object-cover"
+                  className="w-full rounded-lg object-cover"
                 />
                 <img
                   alt={product_info.images[1].alt}
                   src={product_info.images[1].src}
-                  className="w-full pb-5 rounded-lg object-cover"
+                  className="w-full rounded-lg object-cover"
                 />
                 <img
                   alt={product_info.images[2].alt}
                   src={product_info.images[2].src}
-                  className="w-full pb-5 rounded-lg object-cover"
+                  className="w-full rounded-lg object-cover"
+                />
+                <img
+                  alt={product_info.images[3].alt}
+                  src={product_info.images[3].src}
+                  className="w-full rounded-lg object-cover"
                 />
               </div>
-              <img
-                alt={product_info.images[3].alt}
-                src={product_info.images[3].src}
-                className="size-full max-h-fit object-cover sm:rounded-lg"
-              />
             </div>
 
             {/* Product_info info */}
@@ -287,7 +291,7 @@ export default function ProductInfo() {
               </div>
             </div>
           </div>
-          <div className="mt-24 max-w-6xl mx-60 lg:col-span-2 lg:col-start-1 lg:pt-6 lg:pr-8 lg:pb-16">
+          <div className="max-w-6xl mx-60 lg:col-span-2 lg:col-start-1 lg:pt-6 lg:pr-8 lg:pb-16">
             {/* Description and details */}
             <div>
               <h3 className="sr-only">Description</h3>

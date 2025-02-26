@@ -34,7 +34,7 @@ export default function Header() {
           {/* <Popover className="relative"> */}
           <div
             onClick={function () {
-              navigate("/products");
+              navigate("/products/Id");
             }}
             className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900"
           >

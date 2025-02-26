@@ -1,6 +1,8 @@
 "use client";
 import { useNavigate, useParams } from "react-router-dom";
 import Image from "../assets/sustainable-fashion-fiesta-celebrate-earth-day-with-chic-ecofriendly-styles.jpeg";
+import Women1 from "../assets/Women_clothes/Top_wear/id_1/attractive-lady-showing-v-gesture-eye-blouse-looking-cheerful-front-view.jpg";
+import Women2 from "../assets/Women_clothes/Top_wear/id_2/portrait-serious-young-woman_13339-219348.jpeg";
 import { useState } from "react";
 import {
   Dialog,
@@ -24,23 +26,19 @@ import {
 const products = [
   {
     id: 1,
-    name: "Earthen Bottle",
+    name: "V Gesture Eye Blouse",
     href: "#",
     price: "$48",
-    imageSrc:
-      "https://tailwindui.com/plus-assets/img/ecommerce-images/category-page-04-image-card-01.jpg",
-    imageAlt:
-      "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
+    imageSrc: Women1,
+    imageAlt: "v-gesture-eye-blouse.",
   },
   {
     id: 2,
-    name: "Nomad Tumbler",
+    name: "Elegant Pleat Collar Blouse",
     href: "#",
     price: "$35",
-    imageSrc:
-      "https://tailwindui.com/plus-assets/img/ecommerce-images/category-page-04-image-card-02.jpg",
-    imageAlt:
-      "Olive drab green insulated bottle with flared screw lid and flat top.",
+    imageSrc: Women2,
+    imageAlt: "elegant-pleat-collar-blouse.",
   },
 ];
 
@@ -52,11 +50,11 @@ const sortOptions = [
   { name: "Price: High to Low", href: "#", current: false },
 ];
 const subCategories = [
-  { name: "Totes", href: "#" },
-  { name: "Backpacks", href: "#" },
-  { name: "Travel Bags", href: "#" },
-  { name: "Hip Bags", href: "#" },
-  { name: "Laptop Sleeves", href: "#" },
+  { name: "Tops", href: "#" },
+  { name: "Dresses", href: "#" },
+  { name: "Bottoms", href: "#" },
+  { name: "Outerwear", href: "#" },
+  { name: "Activewear", href: "#" },
 ];
 
 const filters = [
@@ -104,7 +102,7 @@ function classNames(...classes) {
 export default function Products() {
   const navigate = useNavigate();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  const { categoryId } = useParams();
+  // const { categoryId } = useParams();
 
   return (
     <>
