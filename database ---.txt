@@ -1,11 +1,12 @@
 database ---> 
 
 1) User Information (
-	a) name
-	b) email
-	c) password
-	d) address
-	e) phone no.
+	a) FirstName
+	b) LastName
+	c) email
+	d) password
+	e) address
+	f) phone no.
 )
 
 2) category(
@@ -48,7 +49,6 @@ database --->
 	h) order date
 	i) delivery status
 	j) payment method (optional)
-	k) 
 ) 
 
 6) payment information(
