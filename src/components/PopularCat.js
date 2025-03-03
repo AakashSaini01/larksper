@@ -44,7 +44,7 @@ export default function PopularCat() {
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <div className="bg-white mb-5 flex">
           <h2 className="text-2xl text-start flex font-dot uppercase text-gray:text-gray-900">
-            Popular Categories
+            Popular Products
           </h2>
           <button className="text-base capitalize font-semibold text-right flex-1 font-dot text-gray:text-gray-900 underline">
             view all products
