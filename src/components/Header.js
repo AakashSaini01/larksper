@@ -15,7 +15,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   let navigate = useNavigate();
   return (
-    <header className=" ">
+    <header className="">
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-full items-center justify-between pb-1 lg:px-8"
@@ -44,7 +44,7 @@ export default function Header() {
 
           <div
             onClick={function () {
-              navigate("/products/categoryId");
+              navigate("/products/Id");
             }}
             className="text-sm/6 font-semibold text-gray-900"
           >
