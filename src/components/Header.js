@@ -52,7 +52,7 @@ export default function Header() {
           </div>
           <div
             onClick={function () {
-              navigate("/products");
+              navigate("/products/Id");
             }}
             className="text-sm/6 font-semibold text-gray-900"
           >
@@ -60,7 +60,7 @@ export default function Header() {
           </div>
           <div
             onClick={function () {
-              navigate("/products");
+              navigate("/products/Id");
             }}
             className="text-sm/6 font-semibold text-gray-900"
           >
@@ -82,7 +82,7 @@ export default function Header() {
 
         <div className="hidden lg:flex w-1/3 lg:flex-1 lg:justify-end">
           <a
-            href="./products.js"
+            href="/cart"
             className="text-sm/6 columns-2 font-semibold text-gray-900"
           >
             <span aria-hidden="true"></span>
@@ -102,7 +102,7 @@ export default function Header() {
             </svg>
           </a>
           <a
-            href="./products.js"
+            href="/"
             className="text-sm/6 columns-2 font-semibold text-gray-900"
           >
             <span aria-hidden="true"></span>
@@ -159,7 +159,7 @@ export default function Header() {
         <div className="fixed inset-0 z-10" />
         <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <a href="./products.js" className="-m-1.5 p-1.5">
+            <a href="./products" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <img
                 alt=""

@@ -74,10 +74,7 @@ export default function ProductInfo() {
       <div className="bg-white">
         <div className="pt-6">
           <nav aria-label="Breadcrumb">
-            <ol
-              role="list"
-              className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8"
-            >
+            <ol className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
               {product_info.breadcrumbs.map((breadcrumb) => (
                 <li key={breadcrumb.id}>
                   <div className="flex items-center">
@@ -222,12 +219,9 @@ export default function ProductInfo() {
                       <h3 className="text-sm font-medium text-gray-900">
                         Size
                       </h3>
-                      <a
-                        href="#"
-                        className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                      >
+                      <div className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
                         Size guide
-                      </a>
+                      </div>
                     </div>
 
                     <fieldset aria-label="Choose a size" className="mt-4">
@@ -307,7 +301,7 @@ export default function ProductInfo() {
               <h3 className="text-sm font-medium text-gray-900">Highlights</h3>
 
               <div className="mt-4">
-                <ul role="list" className="list-disc space-y-2 pl-4 text-sm">
+                <ul className="list-disc space-y-2 pl-4 text-sm">
                   {product_info.highlights.map((highlight) => (
                     <li key={highlight} className="text-gray-400">
                       <span className="text-gray-600">{highlight}</span>

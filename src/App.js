@@ -1,4 +1,3 @@
-import "./App.css";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
@@ -7,6 +6,7 @@ import Login from "./components/login";
 import Signup from "./components/signup";
 import ProductInfo from "./components/Product_info";
 import Products from "./components/products";
+import Cart from "./components/Cart";
 
 function Layout() {
   return (
@@ -26,8 +26,9 @@ function App() {
         <Route path="/Signup" element={<Signup />} />
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/products/:Id" element={<Products />} />
+          <Route path="/products/:category" element={<Products />} />
           <Route path="/productInfo" element={<ProductInfo />} />
+          <Route path="/cart" element={<Cart />} />
         </Route>
       </Routes>
     </BrowserRouter>
