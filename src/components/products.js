@@ -1,8 +1,6 @@
 "use client";
-import { useParams } from "react-router-dom";
-// import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import Women from "../assets/sustainable-fashion-fiesta-celebrate-earth-day-with-chic-ecofriendly-styles.jpeg";
+import { useNavigate, useParams } from "react-router-dom";
+import Image from "../assets/sustainable-fashion-fiesta-celebrate-earth-day-with-chic-ecofriendly-styles.jpeg";
 import Women1 from "../assets/Women_clothes/Top_wear/id_1/attractive-lady-showing-v-gesture-eye-blouse-looking-cheerful-front-view.jpg";
 import Women2 from "../assets/Women_clothes/Top_wear/id_2/portrait-serious-young-woman_13339-219348.jpeg";
 import { useState } from "react";
@@ -29,6 +27,7 @@ const products = [
   {
     id: 1,
     name: "V Gesture Eye Blouse",
+    href: "#",
     price: "$48",
     imageSrc: Women1,
     imageAlt: "v-gesture-eye-blouse.",
@@ -36,6 +35,7 @@ const products = [
   {
     id: 2,
     name: "Elegant Pleat Collar Blouse",
+    href: "#",
     price: "$35",
     imageSrc: Women2,
     imageAlt: "elegant-pleat-collar-blouse.",
@@ -43,18 +43,18 @@ const products = [
 ];
 
 const sortOptions = [
-  { name: "Most Popular", current: true },
-  { name: "Best Rating", current: false },
-  { name: "Newest", current: false },
-  { name: "Price: Low to High", current: false },
-  { name: "Price: High to Low", current: false },
+  { name: "Most Popular", href: "#", current: true },
+  { name: "Best Rating", href: "#", current: false },
+  { name: "Newest", href: "#", current: false },
+  { name: "Price: Low to High", href: "#", current: false },
+  { name: "Price: High to Low", href: "#", current: false },
 ];
 const subCategories = [
-  { name: "Tops" },
-  { name: "Dresses" },
-  { name: "Bottoms" },
-  { name: "Outerwear" },
-  { name: "Activewear" },
+  { name: "Tops", href: "#" },
+  { name: "Dresses", href: "#" },
+  { name: "Bottoms", href: "#" },
+  { name: "Outerwear", href: "#" },
+  { name: "Activewear", href: "#" },
 ];
 
 const filters = [
@@ -95,37 +95,11 @@ const filters = [
   },
 ];
 
-const categoryData = {
-  women: {
-    image: { Women },
-    title: "Women",
-  },
-  men: {
-    image: "path-to-men-image.jpg",
-    title: "Men",
-  },
-  kids: {
-    image: "path-to-kids-image.jpg",
-    title: "Kids",
-  },
-  accessories: {
-    image: "path-to-accessories-image.jpg",
-    title: "Accessories",
-  },
-};
-
-const selectedCategory = categoryData[category] || {
-  image: "default-image.jpg",
-  title: "Products",
-};
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Products() {
-  const { category } = useParams();
-  const [products, setProducts] = useState([]);
   const navigate = useNavigate();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   // const { categoryId } = useParams();
@@ -134,14 +108,12 @@ export default function Products() {
     <>
       <div className="relative w-full h-96 overflow-hidden">
         <img
-          src={selectedCategory.image}
-          alt="category-banner"
+          src={Image}
+          alt="top-image"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <h1 className="text-white text-4xl font-bold">
-            {selectedCategory.title}
-          </h1>
+          <h1 className="text-white text-4xl font-bold">Women</h1>
         </div>
       </div>
       <div className="bg-white">
@@ -177,7 +149,10 @@ export default function Products() {
                 {/* Filters */}
                 <form className="mt-4 border-t border-gray-200">
                   <h3 className="sr-only">Categories</h3>
-                  <ul className="px-2 py-3 font-medium text-gray-900">
+                  <ul
+                    role="list"
+                    className="px-2 py-3 font-medium text-gray-900"
+                  >
                     {subCategories.map((category) => (
                       <li key={category.name}>
                         <a href={category.href} className="block px-2 py-3">
@@ -328,7 +303,10 @@ export default function Products() {
                 {/* Filters */}
                 <form className="hidden lg:block">
                   <h3 className="sr-only">Categories</h3>
-                  <ul className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
+                  <ul
+                    role="list"
+                    className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900"
+                  >
                     {subCategories.map((category) => (
                       <li key={category.name}>
                         <a href={category.href}>{category.name}</a>
