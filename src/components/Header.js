@@ -10,6 +10,14 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import larksper from "../assets/banner.png";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+const categories = [
+  { id: "women", name: "Women" },
+  { id: "men", name: "Men" },
+  { id: "accessories", name: "Accessories" },
+  { id: "jewelleries", name: "Jewelleries" },
+];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -31,43 +39,16 @@ export default function Header() {
           </button>
         </div>
         <PopoverGroup className="hidden cursor-pointer lg:flex w-1/3 lg:gap-x-12">
-          {/* <Popover className="relative"> */}
-          <div
-            onClick={function () {
-              navigate("/products/Id");
-            }}
-            className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900"
-          >
-            Women
-          </div>
-          {/* </Popover> */}
-
-          <div
-            onClick={function () {
-              navigate("/products/Id");
-            }}
-            className="text-sm/6 font-semibold text-gray-900"
-          >
-            Men
-          </div>
-          <div
-            onClick={function () {
-              navigate("/products/Id");
-            }}
-            className="text-sm/6 font-semibold text-gray-900"
-          >
-            Accessories
-          </div>
-          <div
-            onClick={function () {
-              navigate("/products/Id");
-            }}
-            className="text-sm/6 font-semibold text-gray-900"
-          >
-            Jwelleries
-          </div>
+          {categories.map((category) => (
+            <Link
+              key={category.id}
+              to={`/products/${category.id}`}
+              className="text-sm/6 font-semibold text-gray-900"
+            >
+              {category.name}
+            </Link>
+          ))}
         </PopoverGroup>
-
         <div className="flex md:flex-1 w-1/3 justify-center">
           <div
             onClick={function () {
@@ -79,7 +60,6 @@ export default function Header() {
             <img alt="" src={larksper} className="h-16 w-full" />
           </div>
         </div>
-
         <div className="hidden lg:flex w-1/3 lg:flex-1 lg:justify-end">
           <a
             href="/cart"

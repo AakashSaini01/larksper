@@ -3,7 +3,10 @@ import { useNavigate } from "react-router-dom";
 import Image from "../assets/sustainable-fashion-fiesta-celebrate-earth-day-with-chic-ecofriendly-styles.jpeg";
 import Women1 from "../assets/Women_clothes/Top_wear/id_1/attractive-lady-showing-v-gesture-eye-blouse-looking-cheerful-front-view.jpg";
 import Women2 from "../assets/Women_clothes/Top_wear/id_2/portrait-serious-young-woman_13339-219348.jpeg";
-import { useState } from "react";
+import men1 from "../assets/Men_clothes/Top_wear/handsome-tourist-straw-hat-put-sunglasses-summer-vacation.png";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   Dialog,
   Disclosure,
@@ -23,24 +26,51 @@ import {
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
 
-const products = [
-  {
-    id: 1,
-    name: "V Gesture Eye Blouse",
-    href: "#",
-    price: "$48",
-    imageSrc: Women1,
-    imageAlt: "v-gesture-eye-blouse.",
-  },
-  {
-    id: 2,
-    name: "Elegant Pleat Collar Blouse",
-    href: "#",
-    price: "$35",
-    imageSrc: Women2,
-    imageAlt: "elegant-pleat-collar-blouse.",
-  },
-];
+const products = {
+  women: [
+    {
+      id: 1,
+      name: "V Gesture Eye Blouse",
+      price: "$48",
+      imageSrc: Women1,
+      imageAlt: "v-gesture-eye-blouse.",
+    },
+    {
+      id: 2,
+      name: "Elegant Pleat Collar Blouse",
+      price: "$35",
+      imageSrc: Women2,
+      imageAlt: "elegant-pleat-collar-blouse.",
+    },
+  ],
+  men: [
+    {
+      id: 3,
+      name: "Classic Fit Shirt",
+      price: "$40",
+      imageSrc: men1,
+      imageAlt: "classic-fit-shirt",
+    },
+  ],
+  accessories: [
+    {
+      id: 4,
+      name: "Leather Wallet",
+      price: "$20",
+      imageSrc: "path/to/Wallet.jpg",
+      imageAlt: "leather-wallet",
+    },
+  ],
+  jewelleries: [
+    {
+      id: 5,
+      name: "Gold Necklace",
+      price: "$120",
+      imageSrc: "path/to/Necklace.jpg",
+      imageAlt: "gold-necklace",
+    },
+  ],
+};
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },
@@ -102,7 +132,29 @@ function classNames(...classes) {
 export default function Products() {
   const navigate = useNavigate();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  // const { categoryId } = useParams();
+  const { category } = useParams();
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      try {
+        const url = category
+          ? `http://localhost:5000/api/products/${category}`
+          : "http://localhost:5000/products"; // Fetch all products if no category is provided
+
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    }
+    fetchProducts();
+  }, [category]);
 
   return (
     <>
@@ -113,7 +165,7 @@ export default function Products() {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <h1 className="text-white text-4xl font-bold">Women</h1>
+          <h1 className="text-white text-4xl font-bold">{category}</h1>
         </div>
       </div>
       <div className="bg-white">
@@ -385,17 +437,14 @@ export default function Products() {
                 <div className="lg:col-span-3">
                   <div className="bg-white">
                     <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-12 lg:max-w-7xl lg:px-8">
-                      {/* <h2 className="text-3xl text-center mb-8">Products</h2> */}
-
                       <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
                         {products.map((product) => (
-                          <a
+                          <Link
                             key={product.id}
-                            href={product.href}
+                            to={`/productInfo/${product.id}`}
                             className="group"
                           >
                             <img
-                              onClick={() => navigate("/productInfo")}
                               alt={product.imageAlt}
                               src={product.imageSrc}
                               className="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8"
@@ -406,7 +455,7 @@ export default function Products() {
                             <p className="mt-1 text-lg font-medium text-gray-900">
                               {product.price}
                             </p>
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
