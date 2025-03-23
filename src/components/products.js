@@ -1,6 +1,7 @@
 "use client";
 import { useNavigate } from "react-router-dom";
-import Image from "../assets/sustainable-fashion-fiesta-celebrate-earth-day-with-chic-ecofriendly-styles.jpeg";
+import Women from "../assets/luxury-jewelry-brand-advertisement-with-woman-model-shooting.jpg";
+import Men from "../assets/portrait-handsome-young-man-formal-suit-posing-luxury-apartments.jpeg";
 import Women1 from "../assets/Women_clothes/Top_wear/id_1/attractive-lady-showing-v-gesture-eye-blouse-looking-cheerful-front-view.jpg";
 import Women2 from "../assets/Women_clothes/Top_wear/id_2/portrait-serious-young-woman_13339-219348.jpeg";
 import men1 from "../assets/Men_clothes/Top_wear/handsome-tourist-straw-hat-put-sunglasses-summer-vacation.png";
@@ -87,6 +88,13 @@ const subCategories = [
   { name: "Activewear", href: "#" },
 ];
 
+const categoryImages = {
+  women: { src: Women, alt: "Women clothing category" },
+  men: { src: Men, alt: "Men clothing category" },
+  accessories: { src: Women, alt: "Accessories category" },
+  jewelleries: { src: Men, alt: "Jewellery category" },
+};
+
 const filters = [
   {
     id: "color",
@@ -134,6 +142,7 @@ export default function Products() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const { category } = useParams();
   const [products, setProducts] = useState([]);
+  const categoryImage = categoryImages[category];
 
   useEffect(() => {
     async function fetchProducts() {
@@ -160,8 +169,8 @@ export default function Products() {
     <>
       <div className="relative w-full h-96 overflow-hidden">
         <img
-          src={Image}
-          alt="top-image"
+          src={categoryImage.src}
+          alt={categoryImage.alt}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">

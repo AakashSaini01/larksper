@@ -1,7 +1,6 @@
 import logo from "../assets/banner.png";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import CallIcon from "@mui/icons-material/Call";
 import XIcon from "@mui/icons-material/X";
@@ -43,10 +42,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/*  */}
+          {/* Contact */}
           <div className="ml-12">
             <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">
-              Icons
+              Contact Us
             </h3>
             <ul className="mt-4 space-y-1">
               <li>
@@ -67,12 +66,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
-            <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">
-              Contact Us
-            </h3>
-            <ul className="mt-4 space-y-1">
+            <ul className="mt-9 space-y-1">
               <li>
                 <div className="text-gray-600 hover:text-indigo-500">
                   <InstagramIcon /> larksper
@@ -86,11 +81,6 @@ export default function Footer() {
               <li>
                 <div className="text-gray-600 hover:text-indigo-500">
                   <XIcon />
-                </div>
-              </li>
-              <li>
-                <div className="text-gray-600 hover:text-indigo-500">
-                  <WhatsAppIcon />
                 </div>
               </li>
             </ul>
