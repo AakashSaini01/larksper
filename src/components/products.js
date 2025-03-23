@@ -1,6 +1,6 @@
 "use client";
 import { useNavigate } from "react-router-dom";
-import Women from "../assets/luxury-jewelry-brand-advertisement-with-woman-model-shooting.jpg";
+import Women from "../assets/sustainable-fashion-fiesta-celebrate-earth-day-with-chic-ecofriendly-styles.jpeg";
 import Men from "../assets/portrait-handsome-young-man-formal-suit-posing-luxury-apartments.jpeg";
 import Women1 from "../assets/Women_clothes/Top_wear/id_1/attractive-lady-showing-v-gesture-eye-blouse-looking-cheerful-front-view.jpg";
 import Women2 from "../assets/Women_clothes/Top_wear/id_2/portrait-serious-young-woman_13339-219348.jpeg";
@@ -294,7 +294,7 @@ export default function Products() {
 
           <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex items-baseline justify-between border-b border-gray-200 pb-6">
-              <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+              <h1 className="text-3xl mt-12 font-bold tracking-tight text-gray-900">
                 New Arrivals
               </h1>
 
