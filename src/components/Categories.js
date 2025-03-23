@@ -59,7 +59,7 @@ export default function Categories() {
                   className="absolute top-4 left-4 bg-white text-orange-600 font-bold text-sm px-2 py-1 rounded-full shadow opacity-0 group-hover:opacity-100 transition duration-500"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.5 }}
+                  transition={{ duration: 0.5, delay: 5 }}
                 >
                   ⭐ {category.rating}
                 </motion.div>
