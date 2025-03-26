@@ -27,48 +27,54 @@ import {
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
 
-const products = {
+// Sample product data - in a real app, this would come from your backend
+const productData = {
   women: [
     {
-      id: 1,
+      id: "women-1",
       name: "V Gesture Eye Blouse",
       price: "$48",
       imageSrc: Women1,
-      imageAlt: "v-gesture-eye-blouse.",
+      imageAlt: "v-gesture-eye-blouse",
+      category: "women",
     },
     {
-      id: 2,
+      id: "women-2",
       name: "Elegant Pleat Collar Blouse",
       price: "$35",
       imageSrc: Women2,
-      imageAlt: "elegant-pleat-collar-blouse.",
+      imageAlt: "elegant-pleat-collar-blouse",
+      category: "women",
     },
   ],
   men: [
     {
-      id: 3,
+      id: "men-1",
       name: "Classic Fit Shirt",
       price: "$40",
       imageSrc: men1,
       imageAlt: "classic-fit-shirt",
+      category: "men",
     },
   ],
   accessories: [
     {
-      id: 4,
+      id: "acc-1",
       name: "Leather Wallet",
       price: "$20",
-      imageSrc: "path/to/Wallet.jpg",
+      imageSrc: Men, // Temporary image
       imageAlt: "leather-wallet",
+      category: "accessories",
     },
   ],
   jewelleries: [
     {
-      id: 5,
+      id: "jew-1",
       name: "Gold Necklace",
       price: "$120",
-      imageSrc: "path/to/Necklace.jpg",
+      imageSrc: Women, // Temporary image
       imageAlt: "gold-necklace",
+      category: "jewelleries",
     },
   ],
 };
@@ -142,26 +148,26 @@ export default function Products() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const { category } = useParams();
   const [products, setProducts] = useState([]);
-  const categoryImage = categoryImages[category];
+  const categoryImage = categoryImages[category] || categoryImages.women;
 
   useEffect(() => {
-    async function fetchProducts() {
+    // Simulate fetching products based on category
+    const fetchProducts = () => {
       try {
-        const url = category
-          ? `http://localhost:5000/api/products/${category}`
-          : "http://localhost:5000/products"; // Fetch all products if no category is provided
-
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
+        // If category exists and is valid, filter by category, otherwise show all products
+        if (category && productData[category]) {
+          setProducts(productData[category]);
+        } else {
+          // Combine all products if no category is selected
+          const allProducts = Object.values(productData).flat();
+          setProducts(allProducts);
         }
-
-        const data = await response.json();
-        setProducts(data);
       } catch (error) {
         console.error("Error fetching products:", error);
+        setProducts([]);
       }
-    }
+    };
+
     fetchProducts();
   }, [category]);
 
@@ -174,7 +180,9 @@ export default function Products() {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <h1 className="text-white text-4xl font-bold">{category}</h1>
+          <h1 className="text-white text-4xl font-bold capitalize">
+            {category || "All Products"}
+          </h1>
         </div>
       </div>
       <div className="bg-white">
@@ -453,11 +461,13 @@ export default function Products() {
                             to={`/productInfo/${product.id}`}
                             className="group"
                           >
-                            <img
-                              alt={product.imageAlt}
-                              src={product.imageSrc}
-                              className="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8"
-                            />
+                            <div className="aspect-square w-full overflow-hidden rounded-lg bg-gray-200">
+                              <img
+                                src={product.imageSrc}
+                                alt={product.imageAlt}
+                                className="h-full w-full object-cover object-center transition-opacity duration-300 group-hover:opacity-75"
+                              />
+                            </div>
                             <h3 className="mt-4 text-sm text-gray-700">
                               {product.name}
                             </h3>
