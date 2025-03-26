@@ -1,7 +1,7 @@
 "use client";
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import Men from "../assets/male-models-visual-photo.jpeg";
 import Women from "../assets/young-woman-with-blue-hedragea-buquet-blue-dress-standing-green-garden-sunset.jpg";
 import Jwellery from "../assets/shop-for-jewlleries.jpg";
@@ -21,7 +21,6 @@ export default function Categories() {
     const interval = setInterval(() => {
       setCategories((prev) => shuffle([...prev]));
     }, 4000);
-
     return () => clearInterval(interval);
   }, []);
 

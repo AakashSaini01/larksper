@@ -7,6 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
+import AnimatedSection from "./AnimatedSection";
 
 library.add(faCalendar, faGift, faShoppingBag, faRightLeft);
 
@@ -49,29 +50,32 @@ export default function Features() {
 
   return (
     <div className="features mt-24 font-dot">
-      <div className="md:container flex flex-col items-center justify-center">
-        <div className="row md:max-w-6xl md:flex md:justify-center md:gap-8">
-          {featuresData.map((feature) => (
-            <div
-              key={feature.id}
-              className={`col-auto text-center md:flex-1 flex flex-col items-center transition-transform duration-300 ${
-                activeFeature === feature.id
-                  ? "opacity-100 scale-110"
-                  : "opacity-50"
-              }`}
-            >
-              <FontAwesomeIcon
-                className="md:text-4xl text-gray-500/75"
-                icon={feature.icon}
-              />
-              <h2 className="sm:text-2xl mt-3 md:w-50">{feature.title}</h2>
-              <p className="sm:text-md text-gray-500/75 md:w-50 mt-2 mb-4">
-                {feature.description}
-              </p>
-            </div>
-          ))}
+      <AnimatedSection animation="fade-up">
+        <div className="md:container flex flex-col items-center justify-center">
+          <div className="row md:max-w-6xl md:flex md:justify-center md:gap-8">
+            {featuresData.map((feature) => (
+              <AnimatedSection key={feature.id} animation="fade-up">
+                <div
+                  className={`col-auto text-center md:flex-1 flex flex-col items-center transition-transform duration-300 ${
+                    activeFeature === feature.id
+                      ? "opacity-100 scale-110"
+                      : "opacity-50"
+                  }`}
+                >
+                  <FontAwesomeIcon
+                    className="md:text-4xl text-gray-500/75"
+                    icon={feature.icon}
+                  />
+                  <h2 className="sm:text-2xl mt-3 md:w-50">{feature.title}</h2>
+                  <p className="sm:text-md text-gray-500/75 md:w-50 mt-2 mb-4">
+                    {feature.description}
+                  </p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
-      </div>
+      </AnimatedSection>
     </div>
   );
 }

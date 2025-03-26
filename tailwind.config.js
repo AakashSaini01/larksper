@@ -74,6 +74,26 @@ module.exports = {
           "15%": { opacity: 0.8, transform: "scale3d(1.1, 1.1, 1.1)" },
           "100%": { opacity: 0, transform: "scale3d(0.3, 0.3, 0.3)" },
         },
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        fadeUp: {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        fadeDown: {
+          "0%": { opacity: "0", transform: "translateY(-20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        fadeLeft: {
+          "0%": { opacity: "0", transform: "translateX(-20px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        fadeRight: {
+          "0%": { opacity: "0", transform: "translateX(20px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
       },
       animation: {
         fadein: "fade-in 1s ease-in-out 0.25s 1",
@@ -90,6 +110,21 @@ module.exports = {
         slideoutright: "slide-out-right 1s ease-in-out 0.25s 1",
         zoomin: "zoom-in 1s ease-in-out 0.25s 1",
         zoomout: "zoom-out 1s ease-in-out 0.25s 1",
+        "fade-in": "fadeIn 1s ease-in forwards",
+        "fade-up": "fadeUp 1s ease-out forwards",
+        "fade-down": "fadeDown 1s ease-out forwards",
+        "fade-left": "fadeLeft 1s ease-out forwards",
+        "fade-right": "fadeRight 1s ease-out forwards",
+      },
+      transitionProperty: {
+        height: "height",
+        spacing: "margin, padding",
+      },
+      transitionDuration: {
+        2000: "2000ms",
+      },
+      transitionDelay: {
+        2000: "2000ms",
       },
     },
   },
