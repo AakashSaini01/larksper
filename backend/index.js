@@ -195,25 +195,29 @@ app.get("/users", async (req, res) => {
   }
 });
 
-app.get("/products/category/:categoryId", async (req, res) => {
+// Category endpoints
+app.get("/categories", async (req, res) => {
   try {
-    const { categoryId } = req.params;
-
-    // Find products that match the given categoryId
-    const products = await Product.find({ categoryId }).populate("categoryId");
-
-    if (!products.length) {
-      return res
-        .status(404)
-        .json({ message: "No products found for this category" });
-    }
-
-    res.json(products);
+    const categories = await Category.find();
+    res.json(categories);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
+app.get("/categories/:id", async (req, res) => {
+  try {
+    const category = await Category.findById(req.params.id);
+    if (!category) {
+      return res.status(404).json({ message: "Category not found" });
+    }
+    res.json(category);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Product endpoints
 app.get("/products", async (req, res) => {
   try {
     const products = await Product.find().populate("categoryId");
@@ -223,6 +227,36 @@ app.get("/products", async (req, res) => {
   }
 });
 
+app.get("/products/:id", async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id).populate(
+      "categoryId"
+    );
+    if (!product) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+    res.json(product);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get("/products/category/:categoryId", async (req, res) => {
+  try {
+    const { categoryId } = req.params;
+    const products = await Product.find({ categoryId }).populate("categoryId");
+    if (!products.length) {
+      return res
+        .status(404)
+        .json({ message: "No products found for this category" });
+    }
+    res.json(products);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Cart endpoints
 app.get("/cart", async (req, res) => {
   try {
     const cartItems = await Cart.find().populate("productId userId");
@@ -232,10 +266,39 @@ app.get("/cart", async (req, res) => {
   }
 });
 
+app.get("/cart/:id", async (req, res) => {
+  try {
+    const cartItem = await Cart.findById(req.params.id).populate(
+      "productId userId"
+    );
+    if (!cartItem) {
+      return res.status(404).json({ message: "Cart item not found" });
+    }
+    res.json(cartItem);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// Order endpoints
 app.get("/orders", async (req, res) => {
   try {
-    const orders = await Order.find().populate("userId");
+    const orders = await Order.find().populate("userId productId");
     res.json(orders);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get("/orders/:id", async (req, res) => {
+  try {
+    const order = await Order.findById(req.params.id).populate(
+      "userId productId"
+    );
+    if (!order) {
+      return res.status(404).json({ message: "Order not found" });
+    }
+    res.json(order);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

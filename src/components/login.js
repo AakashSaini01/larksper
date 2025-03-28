@@ -1,24 +1,35 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { login } from "../api";
+import { useAuth } from "../context/AuthContext";
 import sideImage from "../assets/newlywed-couple-showing-affection-holding-hands-as-they-are-walking-through-zhangjiajie-national-forest-park.jpg";
 
 const LoginPage = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const [error, setError] = useState("");
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const { login: authLogin } = useAuth();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      const response = await login({ email, password });
-      console.log("Login successful:", response);
-      alert("Login successful!");
-      navigate("/");
-    } catch (error) {
-      console.error("Login failed:", error);
-      alert("Login failed. Please try again.");
+      const response = await login(formData);
+      if (response.user) {
+        authLogin(response.user);
+        navigate("/");
+      }
+    } catch (err) {
+      setError(err.response?.data?.error || "Login failed. Please try again.");
     }
   };
 
@@ -48,8 +59,9 @@ const LoginPage = () => {
               </label>
               <input
                 type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all"
                 placeholder="Enter your email"
                 required
@@ -63,8 +75,9 @@ const LoginPage = () => {
               </label>
               <input
                 type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
                 className="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all"
                 placeholder="Enter your password"
                 required
@@ -119,12 +132,12 @@ const LoginPage = () => {
           {/* Sign Up Link */}
           <p className="mt-8 text-center text-sm text-gray-500">
             Don't have an account?{" "}
-            <button
-              onClick={() => navigate("/Signup")}
+            <Link
+              to="/Signup"
               className="font-medium text-gray-700 hover:text-gray-900"
             >
               Sign up
-            </button>
+            </Link>
           </p>
         </div>
       </div>

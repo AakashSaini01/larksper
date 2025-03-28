@@ -1,2 +1,0 @@
-1) Api of category (getting)
-2) api of product for getting data from category (getting)

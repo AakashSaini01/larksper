@@ -1,16 +1,18 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import {
   Dialog,
   DialogPanel,
   Disclosure,
   DisclosureButton,
   PopoverGroup,
+  Menu,
+  Transition,
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import larksper from "../assets/banner.png";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 const categories = [
   {
@@ -31,10 +33,22 @@ const categories = [
   },
 ];
 
+const navigation = [
+  { name: "Home", href: "/", current: true },
+  { name: "Products", href: "/products", current: false },
+  { name: "About", href: "#", current: false },
+  { name: "Contact", href: "#", current: false },
+];
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join("");
+}
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  let navigate = useNavigate();
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,6 +58,32 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleLogout = () => {
+    logout();
+    navigate("/Login");
+  };
+
+  // Helper function to extract first name
+  const getFirstName = (user) => {
+    if (!user) return "";
+
+    // If firstName is explicitly set
+    if (user.firstName) return user.firstName;
+
+    // Try to extract first name from full name or email
+    if (user.name) {
+      return user.name.split(" ")[0];
+    }
+
+    if (user.email) {
+      return user.email.split("@")[0];
+    }
+
+    return "";
+  };
+
+  const firstName = getFirstName(user);
 
   return (
     <header
@@ -92,7 +132,7 @@ export default function Header() {
             />
           </div>
         </div>
-        <div className="hidden lg:flex w-1/3 lg:flex-1 lg:justify-end">
+        <div className="hidden lg:flex w-1/3 lg:flex-1 lg:justify-end items-center space-x-4">
           <a
             href="/cart"
             className={`text-sm/6 columns-2 font-semibold ${
@@ -159,14 +199,76 @@ export default function Header() {
               />
             </svg>
           </a>
-          <div
-            onClick={() => navigate("/Login")}
-            className={`text-sm/6 columns-2 font-semibold cursor-pointer ${
-              isScrolled ? "text-gray-900" : "text-white"
-            }`}
-          >
-            Log in <span aria-hidden="true">&rarr;</span>
-          </div>
+          {user ? (
+            <div className="relative">
+              <Menu as="div" className="relative">
+                <Menu.Button
+                  className={`text-sm/6 font-semibold cursor-pointer flex items-center ${
+                    isScrolled ? "text-gray-900" : "text-white"
+                  }`}
+                >
+                  {firstName} ▼
+                </Menu.Button>
+                <Transition
+                  as={Fragment}
+                  enter="transition ease-out duration-100"
+                  enterFrom="transform opacity-0 scale-95"
+                  enterTo="transform opacity-100 scale-100"
+                  leave="transition ease-in duration-75"
+                  leaveFrom="transform opacity-100 scale-100"
+                  leaveTo="transform opacity-0 scale-95"
+                >
+                  <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <Menu.Item>
+                      {({ active }) => (
+                        <a
+                          href="/profile"
+                          className={`${
+                            active ? "bg-gray-100" : ""
+                          } block px-4 py-2 text-sm text-gray-700`}
+                        >
+                          Profile
+                        </a>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <a
+                          href="/orders"
+                          className={`${
+                            active ? "bg-gray-100" : ""
+                          } block px-4 py-2 text-sm text-gray-700`}
+                        >
+                          Orders
+                        </a>
+                      )}
+                    </Menu.Item>
+                    <Menu.Item>
+                      {({ active }) => (
+                        <button
+                          onClick={handleLogout}
+                          className={`${
+                            active ? "bg-gray-100" : ""
+                          } w-full text-left block px-4 py-2 text-sm text-gray-700`}
+                        >
+                          Logout
+                        </button>
+                      )}
+                    </Menu.Item>
+                  </Menu.Items>
+                </Transition>
+              </Menu>
+            </div>
+          ) : (
+            <div
+              onClick={() => navigate("/Login")}
+              className={`text-sm/6 columns-2 font-semibold cursor-pointer ${
+                isScrolled ? "text-gray-900" : "text-white"
+              }`}
+            >
+              Log in <span aria-hidden="true">&rarr;</span>
+            </div>
+          )}
         </div>
       </nav>
       <Dialog
@@ -221,13 +323,30 @@ export default function Header() {
                   Accessories
                 </div>
               </div>
-              <div className="py-6">
-                <div
-                  onClick={() => navigate("/Login")}
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-                >
-                  Log in
-                </div>
+              <div className="py-6 uppercase">
+                {user ? (
+                  <>
+                    <div
+                      onClick={() => navigate("/profile")}
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                    >
+                      {firstName}
+                    </div>
+                    <div
+                      onClick={handleLogout}
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                    >
+                      Logout
+                    </div>
+                  </>
+                ) : (
+                  <div
+                    onClick={() => navigate("/Login")}
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                  >
+                    Log in
+                  </div>
+                )}
               </div>
             </div>
           </div>

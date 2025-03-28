@@ -1,5 +1,5 @@
 "use client";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import Women from "../assets/sustainable-fashion-fiesta-celebrate-earth-day-with-chic-ecofriendly-styles.jpeg";
 import Men from "../assets/portrait-handsome-young-man-formal-suit-posing-luxury-apartments.jpeg";
 import Women1 from "../assets/Women_clothes/Top_wear/id_1/attractive-lady-showing-v-gesture-eye-blouse-looking-cheerful-front-view.jpg";
@@ -144,7 +144,6 @@ function classNames(...classes) {
 }
 
 export default function Products() {
-  const navigate = useNavigate();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const { category } = useParams();
   const [products, setProducts] = useState([]);
