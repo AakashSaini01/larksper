@@ -61,7 +61,7 @@ const products = [
 
 export default function PopularCat() {
   return (
-    <div className="bg-white flex justify-center pt-10 px-4">
+    <div className="bg-white flex justify-center mt-12 pt-10 px-4">
       <div className="w-full">
         <div className="bg-white mb-5 max-w-7xl mx-auto items-center justify-center text-center">
           <h2 className="text-2xl text-gray-800 font-dot uppercase font-bold">

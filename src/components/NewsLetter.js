@@ -3,7 +3,7 @@ import AnimatedSection from "./AnimatedSection";
 
 export default function NewsLetter() {
   return (
-    <div className="relative isolate bg-Bloom font-dot p-20">
+    <div className="relative isolate bg-Bloom font-dot pl-20 pr-20 mb-12">
       <AnimatedSection animation="fade-up">
         <div className="mx-auto max-w-4xl overflow-hidden bg-white shadow-lg rounded-lg p-20 text-center">
           <h2 className="text-4xl font-bold capitalize tracking-tight sm:text-5xl">

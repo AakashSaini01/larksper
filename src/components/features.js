@@ -49,7 +49,7 @@ export default function Features() {
   }, []);
 
   return (
-    <div className="features mt-24 font-dot">
+    <div className="features font-dot">
       <AnimatedSection animation="fade-up">
         <div className="md:container flex flex-col items-center justify-center">
           <div className="row md:max-w-6xl md:flex md:justify-center md:gap-8">
@@ -67,7 +67,7 @@ export default function Features() {
                     icon={feature.icon}
                   />
                   <h2 className="sm:text-2xl mt-3 md:w-50">{feature.title}</h2>
-                  <p className="sm:text-md text-gray-500/75 md:w-50 mt-2 mb-4">
+                  <p className="sm:text-md text-gray-500/75 md:w-50 mt-2 mb-2">
                     {feature.description}
                   </p>
                 </div>

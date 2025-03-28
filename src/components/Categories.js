@@ -25,7 +25,7 @@ export default function Categories() {
   }, []);
 
   return (
-    <div className="h-screen font-dot flex justify-center items-center">
+    <div className="mt-36 font-dot flex justify-center items-center">
       <div className="max-w-4xl mx-auto p-4 grid grid-cols-2 gap-4">
         <div className="col-span-2 flex justify-center">
           <h1 className="text-3xl mb-6 font-bold text-center text-gray-800">
